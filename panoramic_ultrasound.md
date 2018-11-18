@@ -1,6 +1,6 @@
-# タイトルをここに書く
-(書かれた年代) 著者A / 著者B をここに書く  
-https://arxiv.org/pdf/XXXXXXXXXX.pdf
+# Panoramic ultrasound: a novel and valid tool for monitoring change in muscle mass
+Published online 3 January 2017 Jessica M. Scott <br>
+https://onlinelibrary.wiley.com/doi/full/10.1002/jcsm.12172
 
 ## どんなもの?
 アブストと結論とイントロで読んだものをここに書く
