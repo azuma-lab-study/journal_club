@@ -19,7 +19,9 @@ https://onlinelibrary.wiley.com/doi/full/10.1002/jcsm.12172
         - Bland-Altman plots[1]
         - Lin's concordance correlation coefficient[2]
         - sensitivity(感度)[3]
-        - 
+        - specificity(特異度)[4]
+        - positive predictive value(陽性反応適中度)[5]
+        - negative predictive value(陰性反応適中度)[6]
 
 ### イントロ
 ### 結論
