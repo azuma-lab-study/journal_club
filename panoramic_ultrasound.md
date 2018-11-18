@@ -17,7 +17,7 @@ https://onlinelibrary.wiley.com/doi/full/10.1002/jcsm.12172
         - BR-6(入院前);  BR3, 7, 11, 15, 22, 29, 36, 53, 69(入院中); BR+3, +6, +10(退院後)
     - 評価指標
         - Bland-Altman plots[1]
-        - Lin's concordance correlation coefficient[2]
+        - Lin's concordance correlation coefficient(CCC)[2]
         - sensitivity(感度)[3]
         - specificity(特異度)[4]
         - positive predictive value(陽性反応適中度)[5]
@@ -45,4 +45,8 @@ https://onlinelibrary.wiley.com/doi/full/10.1002/jcsm.12172
 - 縦の散らばりが大きい→ランダム誤差が大きい
 - 縦と横に相関がある→比例誤差の存在．補正値をかけて調整の必要あり
 - 縦の散らばりの中心が0からずれている→加算誤差の存在(値全体で同じである誤差．バイアスのこと) 
-<br>http://jspt.japanpt.or.jp/ebpt_glossary/bland-altman-analysis.html
+
+http://jspt.japanpt.or.jp/ebpt_glossary/bland-altman-analysis.html<br>
+[2]着目する測定値が，ゴールドスタンダードである測定値とどれくらい一致しているのかを評価する指標．0.90程度で適度に一致．0.95程度でほぼ一致，0.99でほぼ完全に一致．<br>
+[3]実際に陽性の被験者を陽性と正しく判定する割合．検査の見落としの少なさを示す．<br>
+[4]実際に陰性の被験者を陰性と正しく判定する割合．間違えて次の検査ステージに移る失敗を防ぐ．<br>
