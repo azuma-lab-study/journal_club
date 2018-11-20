@@ -12,7 +12,8 @@ http://ecmlpkdd2017.ijs.si/papers/paperID11.pdf
   - CNNが発展しているが、サイズが大きなデータ（大きな画像など）では計算速度が課題  
   - CNNの重さの原因はConvolutionで、Sliding-windowで計算することが原因
   - Fourier Convolutional Neural Networksを用いることで高速なトレーニング＆有効性に影響を与えない
-  - Fourier変換を画像解析や信号処理の文脈でNerual Networkに使用している研究はあるが、まだ初期段階でありその貢献は小さい
+  - Fourier変換を画像解析や信号処理の文脈でNerual Networkに使用している研究はあるが、まだ初期段階でありその貢献は小さい  
+  ![image](https://user-images.githubusercontent.com/12442472/48743358-25efd100-eca6-11e8-9214-97e3e107d810.png)  
 
 ## 先行研究と比べて何がすごい？
 - Fourier領域で処理することでConvolutionを高速化する研究はあるが、処理中で空間領域とFourier領域を行き来するため無駄が生じている
@@ -29,11 +30,15 @@ http://ecmlpkdd2017.ijs.si/papers/paperID11.pdf
   - Kaggleの超音波画像データセット（元画像をダウンサンプリング、5 Class分類問題）
 - ネットワークについて
   - 処理がシンプルなのでAlexNetをベースに選択（渡部：今はResNetが性能良いとされているが、あえてAlexNetを選んでいると思われる）
-  - Convolution Kernelは周波数領域で表現、PoolingはFourier領域で間引くことで代用（異なる処理になるが十分動く）
+  - Convolution Kernelは周波数領域で表現、PoolingはFourier領域で間引くことで代用（異なる処理になるが十分動く）  
+  ![image](https://user-images.githubusercontent.com/12442472/48743260-b24dc400-eca5-11e8-8c6c-d4835a4e0757.png)  
+  ![image](https://user-images.githubusercontent.com/12442472/48743282-cee9fc00-eca5-11e8-8a87-6b1c4563a63b.png)  
   - DropoutとDense結合はそのままFourier領域で実装
   - バックエンドをTheanoにしてKerasで実装
   - FFTの層はTheanoで実装
 - 実験結果
+![image](https://user-images.githubusercontent.com/12442472/48743331-022c8b00-eca6-11e8-9582-e9cdc63dda64.png)  
+![image](https://user-images.githubusercontent.com/12442472/48743350-1a040f00-eca6-11e8-8de4-c16284c4c8a3.png)  
   - MNISTはAccuracy下がった、Cifar-10では上がった
   - 処理速度は画像サイズによるが小さい場合は同じ速さ、画像サイズに対して指数関数的に差がつく
 
