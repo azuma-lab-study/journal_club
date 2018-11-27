@@ -90,7 +90,7 @@ http://iopscience.iop.org/article/10.7567/JJAP.54.07HF10/pdf
         1. 複数のRFデータを平均化すること
             - 信号取得回数が増えるので時間が更にかかってしまう．
         2. バンドパスフィルタをかけること
-            - とても良い方法なので使いたい．
+            - とても良い方法なので使いたい．  
         ![image](https://user-images.githubusercontent.com/33616505/49049663-5219cd80-f223-11e8-99dc-008baca7b65b.png)
         ![image](https://user-images.githubusercontent.com/33616505/49049671-5e058f80-f223-11e8-84d5-90c9e9802d14.png)
             - 適用してAIC法の精度を上げたが，AICNCC法のほうが精度が高い．
