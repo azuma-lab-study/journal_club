@@ -36,7 +36,8 @@ https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.21085
         - しかも，周波数帯をエンコード範囲分しかカバーできていないため，IMCLからのパルスエコーが骨髄や皮下脂肪・内臓脂肪からの信号と区別できなくなり取得データから生成したスペクトルは汚染される．
         ![image](https://user-images.githubusercontent.com/33616505/49375388-7c015180-f747-11e8-9a4b-3e93c1033407.png)  
         http://www.innervision.co.jp/sp/ad/suite/hitachi/sup201709/kokontozai
-
+- この研究の先行研究とは違うところ
+    - これら手法は既存の装置の既存のシーケンスを利用して得られた結果である．
 
 ## どうやって有効だと検証した?
 実験で読んだものをここに書く
