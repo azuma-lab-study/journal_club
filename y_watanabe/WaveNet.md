@@ -1,7 +1,7 @@
 
 # WAVENET: A GENERATIVE MODEL FOR RAW AUDIO
 (2016) Aaron van den Oord / Sander Dieleman (Google)  
-
+https://arxiv.org/abs/1609.03499
 
 ## どんなもの?
 - 生の音声信号を生成するネットワーク
