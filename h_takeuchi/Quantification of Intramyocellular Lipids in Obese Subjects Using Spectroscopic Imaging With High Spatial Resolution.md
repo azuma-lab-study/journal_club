@@ -69,12 +69,21 @@ https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.21085
     RF spoiled gradient-echo sequence：信号強度算出に用いる重み付けパラメタを変更させることでT1強調・T2強調・[H]強調を直感的に選択できるシーケンス．
 - データ解析方法
     - セグメンテーション
+        - 各筋群のIMCL含有率を個別に算出する．
     ![image](https://user-images.githubusercontent.com/33616505/49378669-8542ec00-f750-11e8-93ca-ed47a74711df.png)
-
-
-
-## 技術の手法や肝は？
-マテリアル&メソッドで読んだものをここに書く
+    - スペクトル解析
+    ![image](https://user-images.githubusercontent.com/33616505/49379041-93453c80-f751-11e8-8398-ff558fb060b3.png)
+    - VOIの選定
+    ![image](https://user-images.githubusercontent.com/33616505/49379094-ace68400-f751-11e8-85ce-76fcacd1803b.png)
+    - 筋群別のスペクトル分布
+    ![image](https://user-images.githubusercontent.com/33616505/49379133-c2f44480-f751-11e8-9631-456c683429c2.png)
+    - IMCL含有率の算出法
+        - EMCLスペクトル(fat100 %)の強度でIMCLスペクトルの強度を割った．
+- 結果
+    - 表
+    ![image](https://user-images.githubusercontent.com/33616505/49379400-5b8ac480-f752-11e8-9f4b-742f1e2df4a9.png)
+    - 図
+    ![image](https://user-images.githubusercontent.com/33616505/49379445-7a895680-f752-11e8-959f-f8a0bfca687d.png)
 
 ## 議論はある？
 ディスカッションで読んだものをここに書く
