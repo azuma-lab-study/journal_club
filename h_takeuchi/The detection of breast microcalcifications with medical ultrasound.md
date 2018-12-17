@@ -39,9 +39,32 @@ https://asa.scitation.org/doi/pdf/10.1121/1.417973?class=pdf
         - 二回目：中心部の素子群で送信・両側の素子群で受信
         - 送信はf/1，受信はf/2
     - ![image](https://user-images.githubusercontent.com/33616505/50083589-a0752780-0237-11e9-895b-3ad73c27a023.png)
-
+    - スペックルによる信号強度の揺らぎを確率密度関数で表現し，その揺らぎの検出力への影響を評価した．
+        - 十分発達したスペックル下では，信号強度は複素平面上で平均ゼロのガウス分布をとる．
+        - 位相の情報をなくした包絡線信号では，レイリー振幅分布をとる
+        - また，強散乱体により強い収差が生じ，複素平面上では信号強度平均がゼロからシフトする．
+        - このとき，強度検出においてはレイリー振幅分布ではなく，リシアン振幅分布をとるようになる．
+        - リシアン分布
+        ![image](https://user-images.githubusercontent.com/33616505/50084456-65c0be80-023a-11e9-8e50-a517e6058a83.png)
+        ![image](https://user-images.githubusercontent.com/33616505/50084470-740eda80-023a-11e9-965b-c2658b19493c.png)
+        - aは振幅強度，kはs/σ，sは散乱強度,I0は0次ベッセル関数
+        - それぞれの送受信条件がなすPSFを音場シミュレーションにより同定
+        - 15 um間隔で散乱体を配置した．PSFで割り出した分解能以下のグリッドひとつあたりに100個の散乱体をランダムに配置した．
+        - 1000回のシミュレーションを行ない，PDFを作成した．
+    - 結果
+        - ![image](https://user-images.githubusercontent.com/33616505/50085190-ade0e080-023c-11e9-9333-723b50b52282.png)
+        - ![image](https://user-images.githubusercontent.com/33616505/50085353-221b8400-023d-11e9-93f8-6319667feb3e.png)
+        - ![image](https://user-images.githubusercontent.com/33616505/50085385-40817f80-023d-11e9-98e4-ea1e5d0a2a21.png)
+---
+![image](https://user-images.githubusercontent.com/33616505/50085918-d79b0700-023e-11e9-8595-b96939844cc8.png)
+![image](https://user-images.githubusercontent.com/33616505/50085957-fa2d2000-023e-11e9-86a5-402572948361.png)
+![image](https://user-images.githubusercontent.com/33616505/50086045-39f40780-023f-11e9-9f4f-8c9aa9b6ce35.png)
+![image](https://user-images.githubusercontent.com/33616505/50086109-63149800-023f-11e9-995b-8117d45a983d.png)
+![image](https://user-images.githubusercontent.com/33616505/50086136-79baef00-023f-11e9-929f-d9184d7a2577.png)
+http://www.cfme.chiba-u.jp/~haneishi/class/digitalgazo/Evaluation.pdf
 ## 議論はある？
-ディスカッションで読んだものをここに書く
+結果の言い直しがほとんど
+- 解像度と検出力を比較できた．
 
 ## 次に読むべき論文は？
 参考文献で読んだものをここに書く
