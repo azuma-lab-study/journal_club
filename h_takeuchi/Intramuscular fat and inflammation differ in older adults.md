@@ -31,7 +31,7 @@ https://ac.els-cdn.com/S1350453300000242/1-s2.0-S1350453300000242-main.pdf?_tid=
 - Spearmanのロー相関はIMAT・炎症度・身体機能間の相関をとるのに用いられた．
 ---
 ※Mann-WhitneyのU検定：t検定では平均値を比較するが，この検定では中央値を比較する．比較する2群で値の種類が異なっていても問題はない．また，データ分布が正規分布に近いときにはt検定を使った方がよい．  
-http://www.shiga-med.ac.jp/~koyama/stat/test-2g.html
+http://www.shiga-med.ac.jp/~koyama/stat/test-2g.html  
 ※Spearmanのロー相関：スピアマンの相関係数の変数を順位変数に置き直したもの．  
 http://www.tamagaki.com/math/Statistics609.html
 ## 議論はある？
