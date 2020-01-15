@@ -38,54 +38,70 @@ https://ieeexplore.ieee.org/document/8359079
   - Allmanは光音響におけるニードルやカテーテルが作るアーチファクトの低減にDNNを利用した。
   - Hauptmanはモデルベースの学習を使ってLimited-viewからの３D画像再構成を行なった。
   - 
+  
+  
+  
+## DLによる再構成の理論的な問題
+  - DL一般にメジャーなハードルはブラックボックス
+  - 理論解析によってホワイトボックスにしようとしてる人もいるが、特定の逆問題に絞った研究は行われていない
+  - 画像再構成に独特の問題は、
+    - ネットワーク構成？（この理論研究は少ない、実験的な知見のみ）
+    - どんな訓練方法であれば収束が保証されるか？（こっちの理論研究は多い）
+  - CNNは研究されていて、Encoder-Devoderの構造は学習ベースのHankel行列分解によって表現される。
+  - 数学だけでなく物理の概念もDLに貢献している
+    - 対称性、局所性、複合性、多項式のLog確率は指数関数的に簡単なネットワークへ落とし込める
+    - 
+  - no-flattening theoremによればDNNは浅いNNでは正確に近似できないとされるが、多層のConicalな分解（ReLU）はどのような性質かまだわかっていない
+  - 近年の研究によるとWell-designedなNNはよくない局所解を持たず、大域的最適解に行き着く
+  - 今までの理論的研究の成果は、分類問題を対象としたシンプルなネットワークについて言及されたものが多い
+  - イメージングにおいてこれまでの研究がどこまで適用できるかを考えることは重要な研究トピック
+  - 
+  
 
-## 先行研究と比べて何がすごい？
-- Fourier領域で処理することでConvolutionを高速化する研究はあるが、処理中で空間領域とFourier領域を行き来するため無駄が生じている
-- またその他の先行研究でFourier領域でダウンサンプリングすることで空間情報をなるべく保持したまま収束性を向上させる手法が提案されている
-- 提案手法では処理前にFourier変換を施し、逆フーリエ変換はしないまま処理を最後まで行う
-
-
-## どうやって有効だと検証した?
-- 概要
-  - 単純〜複雑なデータセットでAccuracyと速度を比較
-  - ネットワークの層数は同じにした
-  - MNIST (28 x 28のグレースケール画像、10 Class分類問題)
-  - Cifar-10 (32 x 32のRGB画像、10 Class分類問題)
-  - Kaggleの超音波画像データセット（元画像をダウンサンプリング、5 Class分類問題）
-- ネットワークについて
-  - 処理がシンプルなのでAlexNetをベースに選択（渡部：今はResNetが性能良いとされているが、あえてAlexNetを選んでいると思われる）
-  - Convolution Kernelは周波数領域で表現、PoolingはFourier領域で間引くことで代用（異なる処理になるが十分動く）  
-  ![image](https://user-images.githubusercontent.com/12442472/48743260-b24dc400-eca5-11e8-8c6c-d4835a4e0757.png)  
-  ![image](https://user-images.githubusercontent.com/12442472/48743282-cee9fc00-eca5-11e8-8a87-6b1c4563a63b.png)  
-  - DropoutとDense結合はそのままFourier領域で実装
-  - バックエンドをTheanoにしてKerasで実装
-  - FFTの層はTheanoで実装
-- 実験結果
-![image](https://user-images.githubusercontent.com/12442472/48743331-022c8b00-eca6-11e8-9582-e9cdc63dda64.png)  
-![image](https://user-images.githubusercontent.com/12442472/48743350-1a040f00-eca6-11e8-8de4-c16284c4c8a3.png)  
-  - MNISTはAccuracy下がった、Cifar-10では上がった
-  - 処理速度は画像サイズによるが小さい場合は同じ速さ、画像サイズに対して指数関数的に差がつく
-
-
-
-## 技術の手法や肝は？
-- 空間領域でのConvolutionはFourier領域でのHadamard Production（要素ごとの積）になるので計算コストが低くなる
-- FFTとIFFTを行き来しないのでコスト削減になった
-- 空間領域のKernelとくらべて周波数領域のKernelは自由度が大きいので表現力UP
-- (渡部) ↑それはそうだけどパラメータ数増えるからメモリ圧迫しない？大きなモデルだと弱点になるのでは？
-
-
-## 議論はある？
-- MNISTで精度落ちてるのは画像サイズが小さすぎてFFTするときに情報が欠損するから
-- Cifar-10ではFCNNがAccuracy上回った、これはKernelがFourier空間だと表現力が増すから
-- (渡部) ↑それはパラメータ数が増えたからでは？同じ層数で比較するのも良いけど、同じパラメータ数で比較したらどうなる？
-- ネットワークのアーキテクチャに依存せず使えるので、いろいろなタスクで使われると良い
-- (渡部) 空間CNNでKernelサイズが大きいと深い層での受容野が大きくなるので画像の文脈を考慮しやすいとの論文を見たことがあるが、
-このFCNNは空間領域のKernelサイズは実質任意ということになるので文脈を考慮した処理ができるのではないか？
+## Data-drivenなイメージングの研究領域
+  1. Big Data Generation
+  2. Image Domain Learning
+  3. Data Domain Learning
+  4. Hybrid Reconstruction Schemes
+  5. End-to-End Workflows
+  6. Convergence of deep imaging and other emerging technologies
+  
+  - ImageNetのタスクに比べて、CTなどのSinogramと再構成画像との写像は複雑なので、枚数はImageNetと同じかそれより多くないと無理そう
+  - プライバシーとか法的な問題でImageNetほどの十分なデータは集められないので、過学習のリスク
+  - 解決の可能性としては、転移学習やシミュレーションデータからの学習が期待される。
+  
+### Image Domain Learning
+  - 主な課題：画質改善してるけど、本質的な処理なの？Cosmeticな処理なの？
+  - YeがNNのアーキテクチャはWaveletのような信号の表現をしていることを数学的に示した（気になる）
+  - 違いはその基底が学習により獲得されること
+  - したがってImage Domainでのノイズ削減などの学習は本質的な処理を行っていると考えられる。（そうなのか？何回も畳み込むことは違うのでは？）
+  - 
+  
+### Measurement Data Domain Learning
+  - MRIのAUTOMAPがいい例（多様体近似の自動化？）
+  - なんと一層目に全結合層を入れている
+  - 
+  - 
+  
+### MeasurementとImageの融合した情報を使った学習
+  - 洗練された方法としては、NNを所望の函数空間への射影作用素として見ること
+  - この時NNはFramelet信号表現と縮小の効果の両方を持つようになる
+  - Iterativeになるので時間がかかってしまう欠点が生じる
+  - 
+  
+  
+### End-to-Endの学習
+  - CTの生信号から肺の結節を検出する方法
+  - 
+  
+  
 
 ## 次に読むべき論文は？
 Deep Learning Computed Tomography、Wurfi
 Chen, LEARN　Learned experts assessment-based reconstruction netwoek for sparse0data CT
+AUTOMAP
+Yeの画像ドメインの処理は数学的にWaveletと似たようなもんだ、みたいな主張の論文
+Hankel行列って結局なんだったのか？（今の数学レベルだったらいけるかな。。。）
 
 
 
